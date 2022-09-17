@@ -1,0 +1,19 @@
+server:
+  port: 29999
+  servlet:
+    context-path: /api/middleware/elk
+
+logging:
+  config: classpath:logback-spring.xml
+spring:
+  application:
+    name: luck-xhga-middleware-elk
+  data:
+    elasticsearch:
+        client:
+          reactive:
+            connection-timeout: 10000
+            socket-timeout: 10000
+  elasticsearch:
+    rest:
+      uris: 192.168.52.111:9200

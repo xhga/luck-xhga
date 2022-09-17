@@ -1,0 +1,8 @@
+server:
+  port: 39999
+  servlet:
+    context-path: /api/spring/
+
+spring:
+  application:
+    name: luck-xhga-spring-security-oauth2

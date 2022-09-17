@@ -1,0 +1,8 @@
+server:
+  port: 29998
+  servlet:
+    context-path: /api/middleware/zk
+
+spring:
+  application:
+    name: luck-xhga-middleware-zk
