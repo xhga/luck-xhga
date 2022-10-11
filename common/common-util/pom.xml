@@ -49,10 +49,16 @@
             <artifactId>html2pdf</artifactId>
             <version>4.0.3</version>
         </dependency>
+        <!-- spring boot 项目请添加此依赖 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-freemarker</artifactId>-->
+<!--        </dependency>-->
+        <!-- 非spring boot 项目请添加此依赖 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-            <version>${spring.boot.version}</version>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.30</version>
         </dependency>
         <!-- 生成pdf end -->
 
