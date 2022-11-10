@@ -6,7 +6,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 /**
  * 实体类-人
- * @author GEEX1928
+ * @author hwb
  * @date 2021/6/15
  * Document 属性：
  *  1、indexName 索引名称

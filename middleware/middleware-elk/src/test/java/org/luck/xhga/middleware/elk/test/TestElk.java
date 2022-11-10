@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2021/6/8
  */
 @SpringBootTest(classes = SpringMiddleWareELKApplication.class)

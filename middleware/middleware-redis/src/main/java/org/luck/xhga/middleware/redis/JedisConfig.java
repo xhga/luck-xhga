@@ -7,7 +7,7 @@ import redis.clients.jedis.JedisPoolConfig;
 import javax.net.ssl.SSLSocketFactory;
 
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2022/9/4
  */
 public class JedisConfig {

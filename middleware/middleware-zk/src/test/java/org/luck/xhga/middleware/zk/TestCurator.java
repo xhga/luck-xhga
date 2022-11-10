@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2021/6/16
  */
 public class TestCurator {

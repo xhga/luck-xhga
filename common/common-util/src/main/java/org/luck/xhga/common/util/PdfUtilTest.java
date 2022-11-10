@@ -86,10 +86,9 @@ public class PdfUtilTest {
         String outPath = "L:\\A.pdf";
         ClassLoader classLoader = PdfUtilTest.class.getClassLoader();
         URL resource = classLoader.getResource("templates");
-        String templateDirectory  =resource.toURI().getPath();
+        String templateDirectory = resource.toURI().getPath();
         String templateContent = PdfUtilTest.getTemplateContent(templateDirectory, "pdf_template.html", paramMap);
         PdfUtilTest.html2Pdf(templateContent, outPath);
-
     }
 
 

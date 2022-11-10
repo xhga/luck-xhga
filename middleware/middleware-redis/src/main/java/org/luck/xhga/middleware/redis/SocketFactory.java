@@ -22,7 +22,7 @@ import java.security.Security;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2022/9/4
  */
 public class SocketFactory {

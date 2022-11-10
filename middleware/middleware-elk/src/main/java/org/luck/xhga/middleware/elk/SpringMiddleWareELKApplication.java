@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.elasticsearch.repository.config.EnableReactiveElasticsearchRepositories;
 
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2021/6/7
  */
 @SpringBootApplication

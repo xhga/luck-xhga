@@ -240,7 +240,7 @@ public class QRCodeUtil {
 
     public static void main(String[] args) {
         try {
-            QRCodeUtil.createImage("aaa", "C:\\Users\\GEEX1928\\Pictures\\Saved Pictures\\1.png", false);
+            QRCodeUtil.createImage("aaa", "C:\\Users\\hwb\\Pictures\\Saved Pictures\\1.png", false);
         } catch (Exception e) {
             e.printStackTrace();
         }

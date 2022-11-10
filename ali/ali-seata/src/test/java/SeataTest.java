@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.annotation.Resource;
 
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2021/5/31
  */
 @SpringBootTest(classes = SpringAliSeataApplication.class)

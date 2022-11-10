@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * @author GEEX1928
+ * @author hwb
  * @date 2022/9/21
  */
 public class StreamTest {
