@@ -16,7 +16,7 @@ public class MqttHandler {
 
     @ServiceActivator(inputChannel = MqttConfig.DEFAULT_INPUT_CHANNEL)
     public void consumeMessage(@Header("mqtt_receivedTopic") String topic, Message<String> message) {
-        log.info("【接收到MQTT消息】 topic={}, msg={}", topic, message.getPayload());
+        log.info("【MQTT-CONSUME消息】 topic={}, msg={}", topic, message.getPayload());
     }
 
 }
