@@ -1,0 +1,19 @@
+server:
+  port: 39998
+  servlet:
+    context-path: /api/spring/mqtt
+
+spring:
+  application:
+    name: luck-xhga-spring-mqtt
+
+  mqtt:
+    username: admin
+    password: admin
+    url: tcp://127.0.0.1:1883
+    client-id: data-clientId
+    server-id: data-serverId
+    default-topic: topic/#
+    will-topic: data-will
+    will-content: data server offline
+    completion-timeout: 5000
