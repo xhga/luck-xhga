@@ -93,7 +93,7 @@ public class PdfEditUtil {
     public static void main(String[] args) {
         Map<String, String> dataParamMap = new HashMap<>();
         dataParamMap.put("username", "test");
-        ClassLoader classLoader = PdfUtilTest.class.getClassLoader();
+        ClassLoader classLoader = Html2Pdf.class.getClassLoader();
         URL resource = classLoader.getResource("templates");
         String templateDirectory = resource.toURI().getPath() + "\\pdf_template.pdf";
         FileInputStream inputStream = new FileInputStream(templateDirectory);

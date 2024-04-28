@@ -18,7 +18,7 @@ public class TestSend implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        mqttGateway.sendToMqtt("test", "topic");
+        mqttGateway.sendToMqtt("test", "topic/jianhuyi01");
     }
 
 }
