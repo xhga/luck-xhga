@@ -183,7 +183,7 @@ public class Html2Pdf {
         converterProperties.setFontProvider(fontProvider);
         PdfDocument pdf = new PdfDocument(new PdfWriter(outputStream));
         PdfMerger merger = new PdfMerger(pdf);
-        int pageIndex = 0;
+        log.info("[mergeHtml2Pdf] contents: {}", contents.size());
         for (String html:contents) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             PdfDocument temp = new PdfDocument(new PdfWriter(baos));
@@ -193,11 +193,13 @@ public class Html2Pdf {
             } catch (IOException e) {
                 log.info("[mergeHtml2Pdf] IOException: {}", e.getMessage());
             }
-            merger.merge(temp, pageIndex+=1, temp.getNumberOfPages());
+            merger.merge(temp, 1, temp.getNumberOfPages());
             temp.close();
         }
+        merger.close();
         pdf.close();
     }
+
     public static void main(String[] args) throws Exception {
         Map<String, Object> paramMap = new HashMap<>();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
