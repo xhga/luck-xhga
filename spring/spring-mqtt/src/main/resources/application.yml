@@ -12,7 +12,6 @@ spring:
     password: admin
     url: tcp://127.0.0.1:1883
     client-id: data-clientId
-    server-id: data-serverId
     default-topic: topic/#
     will-topic: data-will
     will-content: data server offline
