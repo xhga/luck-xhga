@@ -2,10 +2,14 @@ package org.luck.xhga.common.util;
 
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.font.FontProvider;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -15,6 +19,7 @@ import java.io.*;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -149,6 +154,12 @@ public class Html2Pdf {
             log.info("[html2Pdf] exception: {}", e.getMessage());
         }
     }
+    public static float pxToPt(float pxValue) {
+        // 假设屏幕分辨率为 96 像素/英寸
+        float inches = pxValue / 96f;
+        // 1 英寸 = 72 磅
+        return inches * 72f;
+    }
 
     /**
      * HTML 转 PDF
@@ -175,7 +186,7 @@ public class Html2Pdf {
      * @param contents html内容
      * @param outputStream 输出
      */
-    public static void mergeHtml2Pdf(List<String> contents, OutputStream outputStream) {
+    public static void mergeHtml2Pdf(List<String> contents, OutputStream outputStream, PageSize pageSize) {
         ConverterProperties converterProperties = new ConverterProperties();
         converterProperties.setCharset("UTF-8");
         FontProvider fontProvider = new FontProvider();
@@ -187,6 +198,11 @@ public class Html2Pdf {
         for (String html:contents) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             PdfDocument temp = new PdfDocument(new PdfWriter(baos));
+            Document doc = new Document(temp);
+            doc.setMargins(0, 0, 0, 0);
+            if (pageSize != null) {
+                temp.setDefaultPageSize(pageSize);
+            }
             HtmlConverter.convertToPdf(html, temp, converterProperties);
             try {
                 temp = new PdfDocument(new PdfReader(new ByteArrayInputStream(baos.toByteArray())));
@@ -205,12 +221,17 @@ public class Html2Pdf {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         paramMap.put("date_time", dateTimeFormatter.format(LocalDateTime.now()));
         paramMap.put("date", dateTimeFormatter.format(LocalDateTime.now()).substring(0, 10));
-        String outPath = "L:\\A.pdf";
+        String outPath = "test1.pdf";
         ClassLoader classLoader = Html2Pdf.class.getClassLoader();
         URL resource = classLoader.getResource("templates");
-        String templateDirectory = resource.toURI().getPath();
-        String templateContent = Html2Pdf.getTemplateContent(templateDirectory, "pdf_template.html", paramMap);
-        Html2Pdf.html2Pdf(templateContent, outPath);
+        String templateContent = Html2Pdf.getTemplateContent( resource.toURI().getPath(), "test.html", paramMap);
+        // 将html转pdf
+        //Html2Pdf.html2Pdf(templateContent, outPath);
+        PageSize pageSize = null;
+        pageSize = new PageSize(pxToPt(1382.0F), pxToPt(1000F));
+        FileOutputStream fileOutputStream = new FileOutputStream(outPath);
+        // 合并多个pdf
+        Html2Pdf.mergeHtml2Pdf(Arrays.asList(templateContent, templateContent), fileOutputStream, pageSize);
     }
 
 
