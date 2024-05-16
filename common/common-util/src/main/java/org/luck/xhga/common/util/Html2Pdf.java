@@ -2,6 +2,8 @@ package org.luck.xhga.common.util;
 
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.io.font.FontProgram;
+import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -19,13 +21,12 @@ import java.io.*;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 public class Html2Pdf {
+    private static final String SHIPPED_FONT_RESOURCE_PATH = Objects.requireNonNull(Html2Pdf.class.getResource("/fonts/simsun.ttc")).toString();
+
     /**
      * 获取模板内容
      * @param templateDirectory 模板文件夹
@@ -194,8 +195,11 @@ public class Html2Pdf {
     public static FontProvider getFontProvider() {
         FontProvider fontProvider = new FontProvider();
         try {
-            PdfFont sysFont = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H");
-            fontProvider.addFont(sysFont.getFontProgram(), "UniGB-UCS2-H");
+            FontProgram fontProgram = FontProgramFactory.createFont(SHIPPED_FONT_RESOURCE_PATH+",0");
+            fontProvider.addFont(fontProgram);
+
+            // PdfFont sysFont = PdfFontFactory.createFont("STSongStd-Light", "UniGB-UCS2-H");
+            // fontProvider.addFont(sysFont.getFontProgram(), "UniGB-UCS2-H");
         } catch (IOException e) {
             log.info("[getFontProvider] exception: {}", e.getMessage());
         }
