@@ -25,6 +25,7 @@ import java.util.*;
 
 @Slf4j
 public class Html2Pdf {
+    // 字体下载: http://www.downcc.com/k/songti/
     private static final String SHIPPED_FONT_RESOURCE_PATH = Objects.requireNonNull(Html2Pdf.class.getResource("/fonts/simsun.ttc")).toString();
 
     /**
