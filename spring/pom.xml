@@ -12,6 +12,7 @@
     <modules>
         <module>spring-security-oauth2</module>
         <module>spring-mqtt</module>
+        <module>spring-websocket</module>
     </modules>
     <artifactId>spring</artifactId>
 

@@ -1,0 +1,8 @@
+server:
+  port: 39998
+  servlet:
+    context-path: /api/spring/websocket
+
+spring:
+  application:
+    name: luck-xhga-spring-websocket
