@@ -1,0 +1,8 @@
+server:
+  port: 39997
+  servlet:
+    context-path: /api/spring/test
+
+spring:
+  application:
+    name: luck-xhga-spring-test

@@ -1,5 +1,5 @@
 server:
-  port: 39998
+  port: 39996
   servlet:
     context-path: /api/spring/websocket
 

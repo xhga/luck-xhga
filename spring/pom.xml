@@ -13,6 +13,7 @@
         <module>spring-security-oauth2</module>
         <module>spring-mqtt</module>
         <module>spring-websocket</module>
+        <module>spring-test</module>
     </modules>
     <artifactId>spring</artifactId>
 
