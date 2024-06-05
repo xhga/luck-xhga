@@ -12,7 +12,6 @@
         <module>middleware</module>
         <module>common</module>
         <module>spring</module>
-        <module>spring/spring-websocket</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
