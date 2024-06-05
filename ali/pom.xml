@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.luck.xhga</groupId>
         <artifactId>luck-xhga</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>ali</artifactId>
     <version>0.0.1-SNAPSHOT</version>

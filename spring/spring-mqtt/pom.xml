@@ -6,7 +6,7 @@
     <parent>
         <artifactId>spring</artifactId>
         <groupId>org.luck.xhga</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <packaging>jar</packaging>
